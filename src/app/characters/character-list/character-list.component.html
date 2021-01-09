@@ -1,0 +1,21 @@
+<p>character-list works!</p>
+<div class="divCharacters">
+  <h1>Charaktere</h1>
+  <div>
+    <mat-card class="character-card" *ngFor="let character of listCharacters">
+      <img
+        mat-card-image
+        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+        alt="Photo of Character"
+      />
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ character.name }}</mat-card-title>
+        <mat-card-subtitle>Films:{{ character.films }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions>
+        <a mat-button>Mehr Informationen</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

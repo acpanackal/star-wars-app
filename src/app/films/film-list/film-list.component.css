@@ -1,0 +1,9 @@
+.divFilms {
+  padding: 8%;
+}
+.film-card {
+  max-width: 300px;
+  margin: 1rem;
+  float: left;
+  padding: 1rem;
+}

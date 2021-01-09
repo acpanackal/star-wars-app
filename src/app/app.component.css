@@ -1,0 +1,12 @@
+.navbar {
+  justify-content: flex-start;
+  padding: 2%;
+}
+
+span {
+  padding-right: 1rem;
+}
+
+.themelogo {
+  max-width: 10%;
+}

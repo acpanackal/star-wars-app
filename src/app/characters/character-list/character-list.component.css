@@ -1,0 +1,9 @@
+.divCharacters {
+  padding: 8%;
+}
+.character-card {
+  max-width: 300px;
+  margin: 1rem;
+  float: left;
+  padding: 1rem;
+}
