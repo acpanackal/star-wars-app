@@ -1,1 +1,50 @@
-<p>film-details works!</p>
+<div class="film-details">
+  <h2 class="page-title">{{ film.title }}</h2>
+  <mat-grid-list cols="2">
+    <mat-grid-tile>
+      <div>
+        <h1>Details</h1>
+        <div><b>Director:</b> {{ film.director }}</div>
+        <div><b>Produzenten:</b> {{ film.producer }}</div>
+        <div><b>Erscheinungsdatum:</b> {{ film.release_date }}</div>
+        <p>{{ film.opening_crawl }}</p>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div>
+        <img mat-card-image src="{{ film.imageUrl }}" alt="Photo of Film" />
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div *ngIf="film.charactersData">
+    <b>Charaktere:</b>
+    <div *ngIf="!divFullCharcter" class="charcterBlock">
+      <div
+        *ngFor="let character of film.charactersData; let i = index"
+        class="divCharacterList"
+      >
+        <a
+          mat-raised-button
+          *ngIf="i == 0 || i == 1 || i == 2"
+          (click)="showCharacterDetails(character)"
+        >
+          {{ character.name }}
+        </a>
+      </div>
+      <div>
+        <a mat-raised-button (click)="displayAllCharacters()">...</a>
+      </div>
+    </div>
+
+    <div *ngIf="divFullCharcter" class="charcterBlock">
+      <div
+        class="fullCharacterList"
+        *ngFor="let characters of film.charactersData"
+      >
+        <a mat-raised-button (click)="showCharacterDetails(characters)">
+          {{ characters.name }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

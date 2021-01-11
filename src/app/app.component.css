@@ -1,6 +1,9 @@
 .navbar {
   justify-content: flex-start;
   padding: 2%;
+  background-color: white;
+  padding-right: 10%;
+  padding-left: 10%;
 }
 
 span {
@@ -8,5 +11,5 @@ span {
 }
 
 .themelogo {
-  max-width: 10%;
+  max-width: 80%;
 }

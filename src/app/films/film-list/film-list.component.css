@@ -1,9 +1,21 @@
 .divFilms {
-  padding: 8%;
+  padding-left: 8%;
+  padding-right: 8%;
 }
 .film-card {
   max-width: 300px;
   margin: 1rem;
   float: left;
   padding: 1rem;
+}
+.film-card img {
+  object-fit: cover;
+  height: 300px;
+  width: 100%;
+}
+.page-title {
+  text-align: center;
+  padding-left: 8%;
+  padding-right: 8%;
+  font-size: xx-large;
 }

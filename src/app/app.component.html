@@ -3,13 +3,14 @@
     <mat-toolbar-row class="navbar">
       <span
         ><a mat-button routerLink="/">
-          <img src="../assets/images/Star-Wars-Logo.png" class="themelogo" /></a
+          <img src="../assets/images/Star-Wars-Logo.png" class="img-fluid" /></a
       ></span>
+      <span><a mat-button routerLink="/home"> Star Wars </a></span>
       <span><a mat-button routerLink="/films"> Filme </a></span>
       <span><a mat-button routerLink="/characters"> Charaktere </a></span>
-      <span><a mat-button routerLink="/home"> Home </a></span>
     </mat-toolbar-row>
   </mat-toolbar>
+  <mat-divider></mat-divider>
   <div>
     <router-outlet></router-outlet>
   </div>

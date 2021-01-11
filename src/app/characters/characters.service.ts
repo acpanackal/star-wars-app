@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Film } from './../films/films.service';
+import { Film, SwapiService } from './../swapi.service';
 import { Injectable } from '@angular/core';
 import { Observable, of, forkJoin } from 'rxjs';
 import { finalize, map, tap } from 'rxjs/operators';
 
-const CHARACTER_HTTP_URL_LENGTH = `https://swapi.dev/api/people/`.length;
+const swapiPeopleURL = 'https://swapi.py4e.com/api/people/';
+
+const CHARACTER_HTTP_URL_LENGTH = swapiPeopleURL.length;
 export interface Character {
   id: number;
   name: string;
@@ -24,6 +26,7 @@ export interface Character {
   created: string;
   edited: string;
   url: string;
+  imageUrl: string;
 }
 export interface ListResponse<T> {
   count: number;
@@ -36,34 +39,57 @@ export interface ListResponse<T> {
 })
 export class CharactersService {
   characterList: Character[];
-  constructor(private httpClient: HttpClient) {}
+  selectedCharacter: Character;
+
+  constructor(
+    private httpClient: HttpClient,
+    private swapiService: SwapiService
+  ) {}
 
   getCharactersList(pageNumber = 1): Observable<Character[]> {
     if (this.characterList) {
       return of(this.characterList);
     } else {
       return this.httpClient
-        .get<ListResponse<Character>>(
-          `https://swapi.dev/api/people/?page=${pageNumber}`
-        )
+        .get<ListResponse<Character>>(`${swapiPeopleURL}?page=${pageNumber}`)
         .pipe(
           map((data) =>
-            data.results.map((Character) => {
-              Character.id = this.getCharacterId(Character.url);
-              return Character;
+            data.results.map((character) => {
+              character.id = this.getCharacterId(character.url);
+              this.swapiService
+                .getFilmsByCharacter(character)
+                .subscribe((data) => {
+                  character.filmsData = data;
+                });
+              return character;
             })
           ),
           tap((characters) => (this.characterList = characters))
         );
     }
   }
+  //return Characters for film details page
+  getCharactersByFilm(film: Film) {
+    return forkJoin(
+      film.characters.map((characterUrl) => {
+        return this.httpClient.get<Character>(characterUrl).pipe(
+          map((character) => {
+            character.id = this.getCharacterId(character.url);
+            this.swapiService
+              .getFilmsByCharacter(character)
+              .subscribe((data) => {
+                character.filmsData = data;
+              });
+            return character;
+          })
+        );
+      })
+    );
+  }
 
   private getCharacterId(characterUrl: string): number {
     return parseInt(
-      characterUrl.substring(
-        CHARACTER_HTTP_URL_LENGTH,
-        characterUrl.length - 1
-      ),
+      characterUrl.substring(swapiPeopleURL.length, characterUrl.length - 1),
       10
     );
   }

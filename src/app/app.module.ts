@@ -9,9 +9,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
-//import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
 import { CharacterListComponent } from './characters/character-list/character-list.component';
 import { CharacterDetailsComponent } from './characters/character-details/character-details.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,7 @@ import { CharacterDetailsComponent } from './characters/character-details/charac
     FilmDetailsComponent,
     CharacterListComponent,
     CharacterDetailsComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,9 @@ import { CharacterDetailsComponent } from './characters/character-details/charac
     MatCardModule,
     RoutingModule,
     MatToolbarModule,
-    //MatButtonModule,
+    MatGridListModule,
+    MatDividerModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

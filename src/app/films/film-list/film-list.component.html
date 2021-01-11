@@ -1,14 +1,14 @@
 <div class="divFilms">
-  <h1>Filme</h1>
+  <h1 class="page-title">Filme</h1>
   <div>
     <mat-card class="film-card" *ngFor="let film of listFilms">
       <img
         mat-card-image
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+        src="{{ film.imageUrl }}"
         alt="Photo of Film"
+        class="img-fluid"
       />
       <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{ film.title }}</mat-card-title>
         <mat-card-subtitle>Director:{{ film.director }}</mat-card-subtitle>
         <mat-card-subtitle>Produzenten:{{ film.producer }}</mat-card-subtitle>
@@ -16,8 +16,9 @@
           >Erscheinungsdatum:{{ film.release_date }}</mat-card-subtitle
         >
       </mat-card-header>
+
       <mat-card-actions>
-        <a mat-button>Mehr Informationen</a>
+        <a mat-button (click)="filmDetails(film)">Mehr Informationen</a>
       </mat-card-actions>
     </mat-card>
   </div>

@@ -1,0 +1,17 @@
+.film-details {
+  padding-left: 8%;
+  padding-right: 8%;
+}
+.charcterBlock {
+  display: flex;
+  padding: 2%;
+}
+.page-title {
+  text-align: center;
+  padding-left: 8%;
+  padding-right: 8%;
+  font-size: xx-large;
+}
+.charcterBlock a {
+  margin: 1rem;
+}

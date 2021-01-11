@@ -1,0 +1,18 @@
+.filmBlock {
+  display: flex;
+  padding: 2%;
+}
+.page-title {
+  text-align: center;
+  padding-left: 8%;
+  padding-right: 8%;
+  font-size: xx-large;
+}
+.filmBlock a {
+  margin: 1rem;
+}
+.allfilmBlock {
+  align-items: flex-start !important;
+  padding: 2%;
+  display: inline;
+}

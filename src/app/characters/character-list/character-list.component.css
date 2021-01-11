@@ -1,9 +1,21 @@
 .divCharacters {
-  padding: 8%;
+  padding-left: 8%;
+  padding-right: 8%;
 }
 .character-card {
   max-width: 300px;
   margin: 1rem;
   float: left;
   padding: 1rem;
+}
+.page-title {
+  text-align: center;
+  padding-left: 8%;
+  padding-right: 8%;
+  font-size: xx-large;
+}
+.character-card img {
+  object-fit: cover;
+  height: 300px;
+  width: 100%;
 }

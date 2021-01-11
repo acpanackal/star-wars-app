@@ -1,1 +1,55 @@
-<p>character-details works!</p>
+<div class="character-details">
+  <h2 class="page-title">{{ character.name }}</h2>
+  <mat-grid-list cols="4">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+      <div>
+        <h1>Details</h1>
+        <div><b>Große::</b> {{ character.height }}</div>
+        <div><b>Gewicht:</b> {{ character.mass }}</div>
+        <div><b>Haarfarbe:</b> {{ character.hair_color }}</div>
+        <div><b>Augenfarbe:</b> {{ character.eye_color }}</div>
+        <div><b>Geburtsjahr:</b> {{ character.birth_year }}</div>
+        <div><b>Geschlecht:</b> {{ character.gender }}</div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div>
+        <img
+          mat-card-image
+          src="{{ character.imageUrl }}"
+          alt="Photo of Film"
+        />
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list cols="4">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile [colspan]="2">
+      <div *ngIf="character.filmsData">
+        <b>Filme:</b>
+        <div *ngIf="!divFullFilms" class="filmBlock">
+          <div
+            *ngFor="let film of character.filmsData; let i = index"
+            class="divFilmList"
+          >
+            <a mat-raised-button *ngIf="i < 3" (click)="showFilmDetails(film)">
+              {{ film.title }}
+            </a>
+          </div>
+          <a mat-raised-button (click)="displayAllFilms()">...</a>
+        </div>
+
+        <div *ngIf="divFullFilms" class="allfilmBlock">
+          <div class="fullFilmList" *ngFor="let films of character.filmsData">
+            <a mat-raised-button (click)="showFilmDetails(films)">
+              {{ films.title }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+  </mat-grid-list>
+</div>
