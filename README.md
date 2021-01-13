@@ -1,4 +1,4 @@
-# Test Requirements
+### Test Requirements
 
 *the application runs and shows data of the selected API
 *there are atleast 3 consumed API root resources
@@ -9,7 +9,7 @@
 # API used
 https://swapi.dev/
 
-# Screens Implemented
+### Screens Implemented
 
 *Films,Film Details, Characters,Character details, PLanets and Planet details
 
