@@ -1,22 +1,27 @@
-<div class="character-details">
+<div class="character-details" *ngIf="character">
   <div class="page-title">
-    <span>Character details</span>
+    <span>Charakterdetails</span>
+    <div><mat-divider style="height: 20px; margin: 0 5px"></mat-divider></div>
     <h2>{{ character.name }}</h2>
   </div>
-  <div class="detailsDiv">
-    <div class="leftDiv">
-      <h1 class="card-title">Details</h1>
-      <div><b>Große::</b> {{ character.height }}</div>
-      <div><b>Gewicht:</b> {{ character.mass }}</div>
-      <div><b>Haarfarbe:</b> {{ character.hair_color }}</div>
-      <div><b>Augenfarbe:</b> {{ character.eye_color }}</div>
-      <div><b>Geburtsjahr:</b> {{ character.birth_year }}</div>
-      <div><b>Geschlecht:</b> {{ character.gender }}</div>
-    </div>
-    <div class="rightDiv">
-      <img src="{{ character.imageUrl }}" alt="Photo of Film" />
-    </div>
-  </div>
+  <mat-grid-list cols="2">
+    <mat-grid-tile>
+      <div class="leftDiv">
+        <h1 class="card-title">Details</h1>
+        <div><b>Große::</b> {{ character.height }}</div>
+        <div><b>Gewicht:</b> {{ character.mass }}</div>
+        <div><b>Haarfarbe:</b> {{ character.hair_color }}</div>
+        <div><b>Augenfarbe:</b> {{ character.eye_color }}</div>
+        <div><b>Geburtsjahr:</b> {{ character.birth_year }}</div>
+        <div><b>Geschlecht:</b> {{ character.gender }}</div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="rightDiv">
+        <img src="{{ character.imageUrl }}" alt="Photo of Film" />
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
   <div *ngIf="character.filmsData" class="filmsData">
     <b>Filme:</b>
     <div *ngIf="!divFullFilms" class="filmBlock">
@@ -33,7 +38,7 @@
       </div>
     </div>
 
-    <div *ngIf="divFullFilms" class="allfilmBlock">
+    <div *ngIf="divFullFilms" class="filmBlock">
       <div class="fullFilmList" *ngFor="let films of character.filmsData">
         <a mat-raised-button (click)="showFilmDetails(films)">
           {{ films.title }}

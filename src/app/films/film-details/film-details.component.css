@@ -4,9 +4,11 @@
 }
 .page-title {
   text-align: center;
-  padding-left: 8%;
-  padding-right: 8%;
 }
 .charcterBlock a {
   margin: 1rem;
+}
+.film-details {
+  padding-left: 8%;
+  padding-right: 8%;
 }

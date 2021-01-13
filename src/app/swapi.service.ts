@@ -21,6 +21,7 @@ export interface Film {
   characters: string[];
   charactersData: Character[]; //character
   planets: string[];
+  planetsData: Planet[];
   starships: string[];
   vehicles: string[];
   species: string[];
@@ -152,6 +153,9 @@ export class SwapiService {
             this.getCharactersByFilm(film).subscribe((data) => {
               film.charactersData = data;
             });
+            this.getPlanetsByFilm(film).subscribe((data) => {
+              film.planetsData = data;
+            });
             return film;
           })
         ),
@@ -177,6 +181,9 @@ export class SwapiService {
         }
         this.getCharactersByFilm(film).subscribe((data) => {
           film.charactersData = data;
+        });
+        this.getPlanetsByFilm(film).subscribe((data) => {
+          film.planetsData = data;
         });
         return film;
       })
@@ -357,6 +364,26 @@ export class SwapiService {
           planet.filmsData = data;
         });
         return planet;
+      })
+    );
+  }
+  getPlanetsByFilm(film: Film) {
+    return forkJoin(
+      film.planets.map((characterUrl) => {
+        return this.httpClient.get<Planet>(characterUrl).pipe(
+          map((planet) => {
+            planet.id = this.getPlanetId(planet.url);
+            for (let img of imageGlobalPlanets) {
+              if (img.name === planet.name) {
+                planet.imageUrl = img.url;
+              }
+            }
+            if (!planet.imageUrl) {
+              planet.imageUrl = defaultImage;
+            }
+            return planet;
+          })
+        );
       })
     );
   }

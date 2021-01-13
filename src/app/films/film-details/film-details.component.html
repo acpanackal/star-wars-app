@@ -1,6 +1,6 @@
-<div class="film-details">
+<div class="film-details" *ngIf="film">
   <div class="page-title">
-    <span>Film details</span>
+    <span>Filmdetails</span>
     <h2>{{ film.title }}</h2>
     <h4>Episode {{ film.episode_id }}</h4>
   </div>
@@ -48,6 +48,34 @@
       >
         <a mat-raised-button (click)="showCharacterDetails(characters)">
           {{ characters.name }}
+        </a>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="film.planetsData">
+    <b>Planeten:</b>
+    <div *ngIf="!divFullPlanet" class="charcterBlock">
+      <div
+        *ngFor="let planet of film.planetsData; let i = index"
+        class="divCharacterList"
+      >
+        <a
+          mat-raised-button
+          *ngIf="i == 0 || i == 1 || i == 2"
+          (click)="showPlanetDetails(planet)"
+        >
+          {{ planet.name }}
+        </a>
+      </div>
+      <div *ngIf="film.planetsData.length > 3">
+        <a mat-raised-button (click)="displayAllPlanets()">...</a>
+      </div>
+    </div>
+
+    <div *ngIf="divFullPlanet" class="charcterBlock">
+      <div class="fullCharacterList" *ngFor="let planets of film.planetsData">
+        <a mat-raised-button (click)="showPlanetDetails(planets)">
+          {{ planets.name }}
         </a>
       </div>
     </div>

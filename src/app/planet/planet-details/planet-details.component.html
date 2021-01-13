@@ -1,6 +1,6 @@
-<div class="planet-details">
+<div class="planet-details" *ngIf="planet">
   <div class="page-title">
-    <span>Planet details</span>
+    <span>Planetendetails</span>
     <h2 class="page-title">{{ planet.name }}</h2>
   </div>
 
@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <div *ngIf="divFullFilms" class="allfilmBlock">
+    <div *ngIf="divFullFilms" class="filmBlock">
       <div class="fullFilmList" *ngFor="let films of planet.filmsData">
         <a mat-raised-button (click)="showFilmDetails(films)">
           {{ films.title }}
