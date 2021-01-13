@@ -3,30 +3,21 @@
     <span>Character details</span>
     <h2>{{ character.name }}</h2>
   </div>
-
-  <mat-grid-list cols="2">
-    <mat-grid-tile>
-      <div>
-        <h1>Details</h1>
-        <div><b>Große::</b> {{ character.height }}</div>
-        <div><b>Gewicht:</b> {{ character.mass }}</div>
-        <div><b>Haarfarbe:</b> {{ character.hair_color }}</div>
-        <div><b>Augenfarbe:</b> {{ character.eye_color }}</div>
-        <div><b>Geburtsjahr:</b> {{ character.birth_year }}</div>
-        <div><b>Geschlecht:</b> {{ character.gender }}</div>
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <div>
-        <img
-          mat-card-image
-          src="{{ character.imageUrl }}"
-          alt="Photo of Film"
-        />
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <div *ngIf="character.filmsData">
+  <div class="detailsDiv">
+    <div class="leftDiv">
+      <h1 class="card-title">Details</h1>
+      <div><b>Große::</b> {{ character.height }}</div>
+      <div><b>Gewicht:</b> {{ character.mass }}</div>
+      <div><b>Haarfarbe:</b> {{ character.hair_color }}</div>
+      <div><b>Augenfarbe:</b> {{ character.eye_color }}</div>
+      <div><b>Geburtsjahr:</b> {{ character.birth_year }}</div>
+      <div><b>Geschlecht:</b> {{ character.gender }}</div>
+    </div>
+    <div class="rightDiv">
+      <img src="{{ character.imageUrl }}" alt="Photo of Film" />
+    </div>
+  </div>
+  <div *ngIf="character.filmsData" class="filmsData">
     <b>Filme:</b>
     <div *ngIf="!divFullFilms" class="filmBlock">
       <div

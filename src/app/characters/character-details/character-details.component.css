@@ -6,6 +6,7 @@
   text-align: center;
   padding-left: 8%;
   padding-right: 8%;
+  padding-bottom: 8%;
 }
 .filmBlock a {
   margin: 1rem;
@@ -18,4 +19,10 @@
 mat-grid-tile {
   overflow: visible;
   overflow-wrap: break-word;
+}
+
+.detailsDiv,
+.filmsData {
+  display: flex;
+  justify-content: space-around;
 }
