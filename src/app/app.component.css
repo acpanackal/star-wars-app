@@ -5,6 +5,12 @@
   padding-right: 10%;
   padding-left: 10%;
 }
+.divContent {
+  padding: 2%;
+  padding-right: 10%;
+  padding-left: 10%;
+  justify-content: center;
+}
 
 span {
   padding-right: 1rem;

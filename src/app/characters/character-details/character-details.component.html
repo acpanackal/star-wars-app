@@ -1,7 +1,10 @@
 <div class="character-details">
-  <h2 class="page-title">{{ character.name }}</h2>
-  <mat-grid-list cols="4">
-    <mat-grid-tile></mat-grid-tile>
+  <div class="page-title">
+    <span>Character details</span>
+    <h2>{{ character.name }}</h2>
+  </div>
+
+  <mat-grid-list cols="2">
     <mat-grid-tile>
       <div>
         <h1>Details</h1>
@@ -22,34 +25,29 @@
         />
       </div>
     </mat-grid-tile>
-    <mat-grid-tile></mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list cols="4">
-    <mat-grid-tile></mat-grid-tile>
-    <mat-grid-tile [colspan]="2">
-      <div *ngIf="character.filmsData">
-        <b>Filme:</b>
-        <div *ngIf="!divFullFilms" class="filmBlock">
-          <div
-            *ngFor="let film of character.filmsData; let i = index"
-            class="divFilmList"
-          >
-            <a mat-raised-button *ngIf="i < 3" (click)="showFilmDetails(film)">
-              {{ film.title }}
-            </a>
-          </div>
-          <a mat-raised-button (click)="displayAllFilms()">...</a>
-        </div>
-
-        <div *ngIf="divFullFilms" class="allfilmBlock">
-          <div class="fullFilmList" *ngFor="let films of character.filmsData">
-            <a mat-raised-button (click)="showFilmDetails(films)">
-              {{ films.title }}
-            </a>
-          </div>
-        </div>
+  <div *ngIf="character.filmsData">
+    <b>Filme:</b>
+    <div *ngIf="!divFullFilms" class="filmBlock">
+      <div
+        *ngFor="let film of character.filmsData; let i = index"
+        class="divFilmList"
+      >
+        <a mat-raised-button *ngIf="i < 3" (click)="showFilmDetails(film)">
+          {{ film.title }}
+        </a>
       </div>
-    </mat-grid-tile>
-    <mat-grid-tile></mat-grid-tile>
-  </mat-grid-list>
+      <div *ngIf="character.filmsData.length > 3">
+        <a mat-raised-button (click)="displayAllFilms()">...</a>
+      </div>
+    </div>
+
+    <div *ngIf="divFullFilms" class="allfilmBlock">
+      <div class="fullFilmList" *ngFor="let films of character.filmsData">
+        <a mat-raised-button (click)="showFilmDetails(films)">
+          {{ films.title }}
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

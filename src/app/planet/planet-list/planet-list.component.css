@@ -1,32 +1,31 @@
-.character-card {
+.planet-card {
   max-width: 300px;
   margin: 1rem;
   float: left;
   padding: 1rem;
   background-color: #f0f0f0;
-  overflow: auto;
+  overflow: hidden;
+}
+.planet-card img {
+  max-height: 300px;
 }
 .page-title {
   text-align: center;
   font-size: xx-large;
-  margin-top: 3%;
+  margin-top: 4%;
   margin-bottom: 4%;
-}
-.character-card img {
-  max-height: 300px;
-  max-width: 300px;
-  overflow: auto;
-}
-span {
-  padding-left: 2px;
 }
 mat-card-subtitle {
   color: black;
   font-size: small;
   margin-bottom: 0.6rem !important;
 }
-.characterCards {
+span {
+  padding-left: 2px;
+}
+.planetCards {
   margin-left: 8%;
+  float: left;
 }
 mat-card-title {
   margin-bottom: 1rem !important;

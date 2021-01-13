@@ -1,0 +1,47 @@
+<div class="planet-details">
+  <div class="page-title">
+    <span>Planet details</span>
+    <h2 class="page-title">{{ planet.name }}</h2>
+  </div>
+
+  <mat-grid-list cols="2">
+    <mat-grid-tile>
+      <div>
+        <h1>Details</h1>
+        <div><b>Climate:</b> {{ planet.climate }}</div>
+        <div><b>Population:</b> {{ planet.population }}</div>
+        <div><b>Terrain:</b> {{ planet.terrain }}</div>
+        <div><b>Orbital period:</b> {{ planet.orbital_period }}</div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div>
+        <img mat-card-image src="{{ planet.imageUrl }}" alt="Photo of Film" />
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div *ngIf="planet.filmsData">
+    <b>Filme:</b>
+    <div *ngIf="!divFullFilms" class="filmBlock">
+      <div
+        *ngFor="let film of planet.filmsData; let i = index"
+        class="divFilmList"
+      >
+        <a mat-raised-button *ngIf="i < 3" (click)="showFilmDetails(film)">
+          {{ film.title }}
+        </a>
+      </div>
+      <div *ngIf="planet.filmsData.length > 3">
+        <a mat-raised-button (click)="displayAllFilms()">...</a>
+      </div>
+    </div>
+
+    <div *ngIf="divFullFilms" class="allfilmBlock">
+      <div class="fullFilmList" *ngFor="let films of planet.filmsData">
+        <a mat-raised-button (click)="showFilmDetails(films)">
+          {{ films.title }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

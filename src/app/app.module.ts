@@ -15,6 +15,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { CharacterListComponent } from './characters/character-list/character-list.component';
 import { CharacterDetailsComponent } from './characters/character-details/character-details.component';
 import { HomeComponent } from './home/home.component';
+import { DatePipe } from '@angular/common';
+import { PlanetListComponent } from './planet/planet-list/planet-list.component';
+import { PlanetDetailsComponent } from './planet/planet-details/planet-details.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { HomeComponent } from './home/home.component';
     CharacterListComponent,
     CharacterDetailsComponent,
     HomeComponent,
+    PlanetListComponent,
+    PlanetDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,7 @@ import { HomeComponent } from './home/home.component';
     MatDividerModule,
     MatButtonModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,6 +1,6 @@
 <div class="divFilms">
   <h1 class="page-title">Filme</h1>
-  <div>
+  <div class="filmCards">
     <mat-card class="film-card" *ngFor="let film of listFilms">
       <img
         mat-card-image
@@ -9,14 +9,22 @@
         class="img-fluid"
       />
       <mat-card-header>
-        <mat-card-title>{{ film.title }}</mat-card-title>
-        <mat-card-subtitle>Director:{{ film.director }}</mat-card-subtitle>
-        <mat-card-subtitle>Produzenten:{{ film.producer }}</mat-card-subtitle>
+        <mat-card-title
+          ><strong>{{ film.title }}</strong></mat-card-title
+        >
         <mat-card-subtitle
-          >Erscheinungsdatum:{{ film.release_date }}</mat-card-subtitle
+          >Director:<span>{{ film.director }}</span></mat-card-subtitle
+        >
+        <mat-card-subtitle
+          >Produzenten:<span>{{ film.producer }}</span></mat-card-subtitle
+        >
+        <mat-card-subtitle
+          >Erscheinungsdatum:<span>{{
+            film.release_date
+          }}</span></mat-card-subtitle
         >
       </mat-card-header>
-
+      <mat-card-body></mat-card-body>
       <mat-card-actions>
         <a mat-button (click)="filmDetails(film)">Mehr Informationen</a>
       </mat-card-actions>

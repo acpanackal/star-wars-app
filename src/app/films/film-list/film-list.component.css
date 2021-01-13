@@ -1,21 +1,31 @@
-.divFilms {
-  padding-left: 8%;
-  padding-right: 8%;
-}
 .film-card {
   max-width: 300px;
   margin: 1rem;
   float: left;
   padding: 1rem;
+  background-color: #f0f0f0;
+  overflow: hidden;
 }
 .film-card img {
-  object-fit: cover;
-  height: 300px;
-  width: 100%;
+  max-height: 300px;
 }
 .page-title {
   text-align: center;
-  padding-left: 8%;
-  padding-right: 8%;
   font-size: xx-large;
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+mat-card-subtitle {
+  color: black;
+  font-size: small;
+  margin-bottom: 0.6rem !important;
+}
+span {
+  padding-left: 2px;
+}
+.filmCards {
+  margin-left: 8%;
+}
+mat-card-title {
+  margin-bottom: 1rem !important;
 }

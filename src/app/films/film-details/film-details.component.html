@@ -1,12 +1,17 @@
 <div class="film-details">
-  <h2 class="page-title">{{ film.title }}</h2>
+  <div class="page-title">
+    <span>Film details</span>
+    <h2>{{ film.title }}</h2>
+    <h4>Episode {{ film.episode_id }}</h4>
+  </div>
+
   <mat-grid-list cols="2">
     <mat-grid-tile>
       <div>
         <h1>Details</h1>
-        <div><b>Director:</b> {{ film.director }}</div>
-        <div><b>Produzenten:</b> {{ film.producer }}</div>
-        <div><b>Erscheinungsdatum:</b> {{ film.release_date }}</div>
+        <div><b>Director: </b> {{ film.director }}</div>
+        <div><b>Produzenten: </b> {{ film.producer }}</div>
+        <div><b>Erscheinungsdatum: </b> {{ film.release_date }}</div>
         <p>{{ film.opening_crawl }}</p>
       </div>
     </mat-grid-tile>
@@ -31,7 +36,7 @@
           {{ character.name }}
         </a>
       </div>
-      <div>
+      <div *ngIf="film.charactersData.length > 3">
         <a mat-raised-button (click)="displayAllCharacters()">...</a>
       </div>
     </div>

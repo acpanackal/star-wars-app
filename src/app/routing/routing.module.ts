@@ -1,3 +1,4 @@
+import { PlanetListComponent } from './../planet/planet-list/planet-list.component';
 import { HomeComponent } from './../home/home.component';
 import { CharacterDetailsComponent } from './../characters/character-details/character-details.component';
 import { FilmDetailsComponent } from './../films/film-details/film-details.component';
@@ -8,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { Routes, RouterModule } from '@angular/router';
+import { PlanetDetailsComponent } from '../planet/planet-details/planet-details.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,10 +24,20 @@ const routes: Routes = [
     component: CharacterListComponent,
     pathMatch: 'full',
   },
+  {
+    path: 'planets',
+    component: PlanetListComponent,
+    pathMatch: 'full',
+  },
   { path: 'films/:filmId', component: FilmDetailsComponent, pathMatch: 'full' },
   {
     path: 'characters/:characterId',
     component: CharacterDetailsComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'planets/:planetId',
+    component: PlanetDetailsComponent,
     pathMatch: 'full',
   },
 ];
