@@ -1,9 +1,20 @@
-API used:https://swapi.dev/
+# Test Requirements
 
-Screens Implemented:  Films,Film Details, Characters,Character details, PLanets and Planet details
+*the application runs and shows data of the selected API
+*there are atleast 3 consumed API root resources
+*you have used an application framework (Angular 2+, Blazor, Vue)
+*the application uses responsive design and scales properly woth changing screen sizes/resolutions
+*the code is under source control (Git, TFS, DevOps)
 
-Loading functionality not implemenmted.
-Images downloaded from google and stored locally, as the link had no iamges.
+# API used
+https://swapi.dev/
+
+# Screens Implemented
+
+*Films,Film Details, Characters,Character details, PLanets and Planet details
+
+*Loading functionality not implemenmted.
+*Images downloaded from google and stored locally, as the link had no iamges.
 
 
 # StarWarsApp
