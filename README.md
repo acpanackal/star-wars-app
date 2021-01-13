@@ -1,14 +1,33 @@
-API used:https://swapi.dev/
+# Test Requirements
 
-Screens Implemented:  Films,Film Details, Characters,Character details, PLanets and Planet details
+* the application runs and shows data of the selected API
+* there are atleast 3 consumed API root resources
+* you have used an application framework (Angular 2+, Blazor, Vue)
+* the application uses responsive design and scales properly woth changing screen sizes/resolutions
+* the code is under source control (Git, TFS, DevOps)
 
-Loading functionality not implemenmted.
-Images downloaded from google and stored locally, as the link had no iamges.
+# API used
+https://swapi.dev/
+
+# Screens Implemented
+
+* Films,Film Details, Characters,Character details, Planets and Planet details
+* Film details with Characters and Planets Lists
+* Character details with Films list
+* Planet details with Films list
+
+
+* Loading functionality not implemenmted. (please wait when loading for the first time)
+* Images downloaded from google and stored locally, as the API had no images.
 
 
 # StarWarsApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+* The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+* Components and services generated using Angular CLI
+* Used Angular Material and Bootstrap
+* HttpClient Module to fetch data
+
 
 ## Development server
 
@@ -24,6 +43,9 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+# Screenshot
 
-![Film List](/docs/film-list.png)
+Filme page for referance
+
+![Film List](./docs/film-list.PNG)
 
