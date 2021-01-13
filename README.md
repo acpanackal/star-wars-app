@@ -1,3 +1,11 @@
+API used:https://swapi.dev/
+
+Screens Implemented:  Films,Film Details, Characters,Character details, PLanets and Planet details
+
+Loading functionality not implemenmted.
+Images downloaded from google and stored locally, as the link had no iamges.
+
+
 # StarWarsApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
@@ -16,8 +24,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-API used:https://swapi.dev/
 
-Screens Implemented:  Films,Film Details, Characters,Character details, PLanets and Planet details
-
+![Film List](/docs/film-list.png)
 
