@@ -11,19 +11,20 @@ https://swapi.dev/
 
 # Screens Implemented
 
-* Films,Film Details, Characters,Character details, PLanets and Planet details
-* Characters and Planet list of each Film in Film details
-* Films list of Characters in Character details
-* Film list of Planets in planet list
+* Films,Film Details, Characters,Character details, Planets and Planet details
+* Film details with Characters and Planets Lists
+* Character details with Films list
+* Planet details with Films list
 
 
-* Loading functionality not implemenmted. (please when loading for the first time)
+* Loading functionality not implemenmted. (please wait when loading for the first time)
 * Images downloaded from google and stored locally, as the API had no images.
 
 
 # StarWarsApp
 
 * The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+* Components and services generated using Angular CLI
 * Used Angular Material and Bootstrap
 * HttpClient Module to fetch data
 
