@@ -23,7 +23,10 @@ https://swapi.dev/
 
 # StarWarsApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+* The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+* Used Angular Material and Bootstrap
+* HttpClient Module to fetch data
+
 
 ## Development server
 
@@ -39,6 +42,9 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-# Star Wars Filme Screenshot of the application for reference
+# Screenshot
+
+Filme page for referance
+
 ![Film List](./docs/film-list.PNG)
 
