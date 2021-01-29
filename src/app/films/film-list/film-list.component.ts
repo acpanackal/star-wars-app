@@ -1,4 +1,5 @@
-import { Film, SwapiService } from '../../swapi.service';
+import { SwapiService } from '../../swapi.service';
+import { Film } from '../../films/film';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 

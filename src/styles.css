@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style file*/
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "myriad-pro", "Roboto", sans-serif;
 }
 .mat-button:hover {
   background-color: white !important;

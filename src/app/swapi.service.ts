@@ -3,76 +3,15 @@ import { Injectable } from '@angular/core';
 import { Observable, of, forkJoin } from 'rxjs';
 import { finalize, map, tap } from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
+import { Film } from './films/film';
+import { Character } from './characters/character';
+import { Planet } from './planet/planet';
 const swapiBaseURL = 'https://swapi.dev/api';
 const swapiPeopleURL = swapiBaseURL + '/people';
 const swapiFilmURL = swapiBaseURL + '/films';
 const swapiPlanetURL = swapiBaseURL + '/planets';
 const imageBaseURL = '../../../assets/images/';
 const CHARACTER_HTTP_URL_LENGTH = swapiPeopleURL.length;
-
-export interface Film {
-  id: number;
-  title: string;
-  episode_id: number;
-  opening_crawl: string;
-  director: string;
-  producer: string;
-  release_date: string;
-  characters: string[];
-  charactersData: Character[]; //character
-  planets: string[];
-  planetsData: Planet[];
-  starships: string[];
-  vehicles: string[];
-  species: string[];
-  created: string;
-  edited: string;
-  url: string;
-  imageUrl: string;
-}
-
-export interface Character {
-  id: number;
-  name: string;
-  height: string;
-  mass: string;
-  hair_color: string;
-  skin_color: string;
-  eye_color: string;
-  birth_year: string;
-  gender: string;
-  homeworld: string;
-  films: string[];
-  filmsData: Film[];
-  species: string[];
-  vehicles: string[];
-  starships: string[];
-  created: string;
-  edited: string;
-  url: string;
-  imageUrl: string;
-}
-
-export interface Planet {
-  id: number;
-  climate: string;
-  created: string;
-  diameter: string;
-  edited: string;
-  films: string[];
-  filmsData: Film[];
-  gravity: string;
-  name: string;
-  orbital_period: string;
-  population: string;
-  residents: string[];
-  residentsData: Character[];
-  rotation_period: string;
-  surface_water: string;
-  terrain: string;
-  url: string;
-  imageUrl: string;
-}
 
 export interface ListResponse<T> {
   count: number;

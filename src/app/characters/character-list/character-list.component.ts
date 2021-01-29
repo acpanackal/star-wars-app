@@ -1,4 +1,5 @@
-import { SwapiService, Character } from '../../swapi.service';
+import { SwapiService } from '../../swapi.service';
+import { Character } from '../character';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
