@@ -1,3 +1,4 @@
+import { PlanetService } from './../planet.service';
 import { Router } from '@angular/router';
 import { SwapiService } from './../../swapi.service';
 import { Film } from '../../films/film';
@@ -15,7 +16,11 @@ export class PlanetDetailsComponent implements OnInit {
   characterId: number;
   divFullFilms: boolean = false;
 
-  constructor(public swapiService: SwapiService, private router: Router) {}
+  constructor(
+    public swapiService: SwapiService,
+    private planetService: PlanetService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     // this.character = this.swapiService.selectedCharacter;
@@ -27,7 +32,7 @@ export class PlanetDetailsComponent implements OnInit {
         this.router.url.length
       );
 
-      this.swapiService.getPlanet(this.planetId).subscribe((data) => {
+      this.planetService.getPlanet(this.planetId).subscribe((data) => {
         this.planet = data;
       });
     }
@@ -36,7 +41,7 @@ export class PlanetDetailsComponent implements OnInit {
     this.divFullFilms = true;
   }
   showFilmDetails(film: Film) {
-    console.log(film);
+    //console.log(film);
     this.characterId = film.id;
     this.swapiService.selectedFilm = film;
     this.router.navigate(['/films', film.id]);

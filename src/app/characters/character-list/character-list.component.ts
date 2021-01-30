@@ -13,13 +13,13 @@ export class CharacterListComponent implements OnInit {
   listCharacters: Character[];
   characterId: Number;
 
-  constructor(private service: SwapiService, private router: Router) {
-    service.getCharactersList().subscribe((data) => {
+  constructor(private service: SwapiService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.service.getCharactersList().subscribe((data) => {
       this.listCharacters = data;
     });
   }
-
-  ngOnInit(): void {}
 
   characterDetails(character: Character) {
     //console.log(character);

@@ -1,5 +1,5 @@
+import { PlanetService } from './../planet.service';
 import { Router } from '@angular/router';
-import { SwapiService } from './../../swapi.service';
 import { Planet } from '../../planet/planet';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,13 +12,13 @@ export class PlanetListComponent implements OnInit {
   listPlanets: Planet[];
   planetId: Number;
 
-  constructor(private service: SwapiService, private router: Router) {
-    service.getPlanets().subscribe((data) => {
+  constructor(private service: PlanetService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.service.getPlanets().subscribe((data) => {
       this.listPlanets = data;
     });
   }
-
-  ngOnInit(): void {}
   planetDetails(planet: Planet) {
     this.planetId = planet.id;
     this.service.selectedPlanet = planet;
