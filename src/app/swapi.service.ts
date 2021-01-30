@@ -13,7 +13,7 @@ import {
   defaultImage,
 } from './dummy-image-urls';
 const swapiBaseURL = 'https://swapi.dev/api';
-const swapiPeopleURL = swapiBaseURL + '/people';
+export const swapiPeopleURL = swapiBaseURL + '/people';
 export const swapiFilmURL = swapiBaseURL + '/films';
 export const swapiPlanetURL = swapiBaseURL + '/planets';
 
@@ -86,34 +86,6 @@ export class SwapiService {
     );
   }
 
-  getCharactersList(pageNumber = 1): Observable<Character[]> {
-    if (this.characterList) {
-      return of(this.characterList);
-    } else {
-      return this.httpClient
-        .get<ListResponse<Character>>(`${swapiPeopleURL}?page=${pageNumber}`)
-        .pipe(
-          map((data) =>
-            data.results.map((character) => {
-              character.id = this.getCharacterId(character.url);
-              for (let img of imageGlobalCharacters) {
-                if (img.name === character.name) {
-                  character.imageUrl = img.url;
-                }
-              }
-              if (!character.imageUrl) {
-                character.imageUrl = defaultImage;
-              }
-              this.getFilmsByCharacter(character).subscribe((data) => {
-                character.filmsData = data;
-              });
-              return character;
-            })
-          ),
-          tap((characters) => (this.characterList = characters))
-        );
-    }
-  }
   private getFilmId(filmUrl: string): number {
     return parseInt(
       filmUrl.substring(swapiFilmURL.length, filmUrl.length - 1),
@@ -142,33 +114,6 @@ export class SwapiService {
     );
   }
 
-  getCharacter(characterId: number): Observable<Character> {
-    return this.httpClient
-      .get<Character>(`${swapiPeopleURL}/${characterId}`)
-      .pipe(
-        map((character) => {
-          character.id = this.getCharacterId(character.url);
-          for (let img of imageGlobalCharacters) {
-            if (img.name === character.name) {
-              character.imageUrl = img.url;
-            }
-          }
-          if (!character.imageUrl) {
-            character.imageUrl = defaultImage;
-          }
-          this.getFilmsByCharacter(character).subscribe((data) => {
-            character.filmsData = data;
-          });
-          return character;
-        })
-      );
-  }
-  private getCharacterId(characterUrl: string): number {
-    return parseInt(
-      characterUrl.substring(swapiPeopleURL.length, characterUrl.length - 1),
-      10
-    );
-  }
   getPlanetsByFilm(film: Film) {
     return forkJoin(
       film.planets.map((characterUrl) => {
@@ -192,6 +137,12 @@ export class SwapiService {
   public getPlanetId(characterUrl: string): number {
     return parseInt(
       characterUrl.substring(swapiPlanetURL.length, characterUrl.length - 1),
+      10
+    );
+  }
+  private getCharacterId(characterUrl: string): number {
+    return parseInt(
+      characterUrl.substring(swapiPeopleURL.length, characterUrl.length - 1),
       10
     );
   }

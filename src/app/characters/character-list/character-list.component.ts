@@ -1,4 +1,4 @@
-import { SwapiService } from '../../swapi.service';
+import { CharacterService } from './../character.service';
 import { Character } from '../character';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ export class CharacterListComponent implements OnInit {
   listCharacters: Character[];
   characterId: Number;
 
-  constructor(private service: SwapiService, private router: Router) {}
+  constructor(private service: CharacterService, private router: Router) {}
 
   ngOnInit(): void {
     this.service.getCharactersList().subscribe((data) => {

@@ -1,3 +1,4 @@
+import { CharacterService } from './../character.service';
 import { SwapiService } from '../../swapi.service';
 import { Film } from '../../films/film';
 import { Character } from '../character';
@@ -15,7 +16,11 @@ export class CharacterDetailsComponent implements OnInit {
   characterId: number;
   divFullFilms: boolean = false;
 
-  constructor(public swapiService: SwapiService, private router: Router) {}
+  constructor(
+    public swapiService: SwapiService,
+    private router: Router,
+    private characterService: CharacterService
+  ) {}
 
   ngOnInit(): void {
     // this.character = this.swapiService.selectedCharacter;
@@ -27,7 +32,7 @@ export class CharacterDetailsComponent implements OnInit {
         this.router.url.length
       );
       // console.log(this.characterId);
-      this.swapiService.getCharacter(this.characterId).subscribe((data) => {
+      this.characterService.getCharacter(this.characterId).subscribe((data) => {
         this.character = data;
       });
     }
