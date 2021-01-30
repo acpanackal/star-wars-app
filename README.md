@@ -1,4 +1,4 @@
-# Test Requirements
+# Requirements
 
 * the application runs and shows data of the selected API
 * there are atleast 3 consumed API root resources
