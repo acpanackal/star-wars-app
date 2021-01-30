@@ -1,10 +1,4 @@
-# Requirements
 
-* the application runs and shows data of the selected API
-* there are atleast 3 consumed API root resources
-* you have used an application framework (Angular 2+, Blazor, Vue)
-* the application uses responsive design and scales properly woth changing screen sizes/resolutions
-* the code is under source control (Git, TFS, DevOps)
 
 # API used
 https://swapi.dev/
