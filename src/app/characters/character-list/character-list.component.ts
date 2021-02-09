@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class CharacterListComponent implements OnInit {
   @Input() characters: Character[];
   listCharacters: Character[];
-  characterId: Number;
+  characterId: number;
 
   constructor(private service: CharacterService, private router: Router) {}
 
@@ -21,8 +21,8 @@ export class CharacterListComponent implements OnInit {
     });
   }
 
-  characterDetails(character: Character) {
-    //console.log(character);
+  characterDetails(character: Character): void {
+    // console.log(character);
     this.characterId = character.id;
     this.service.selectedCharacter = character;
     this.router.navigate(['/characters', character.id]);

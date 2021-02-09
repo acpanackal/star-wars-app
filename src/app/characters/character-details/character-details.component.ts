@@ -14,7 +14,7 @@ export class CharacterDetailsComponent implements OnInit {
   character: Character;
   filmId: number;
   characterId: number;
-  divFullFilms: boolean = false;
+  divFullFilms = false;
 
   constructor(
     public swapiService: SwapiService,
@@ -37,10 +37,10 @@ export class CharacterDetailsComponent implements OnInit {
       });
     }
   }
-  displayAllFilms() {
+  displayAllFilms(): void {
     this.divFullFilms = true;
   }
-  showFilmDetails(film: Film) {
+  showFilmDetails(film: Film): void {
     console.log(film);
     this.characterId = film.id;
     this.swapiService.selectedFilm = film;

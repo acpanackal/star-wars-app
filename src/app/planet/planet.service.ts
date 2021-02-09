@@ -28,7 +28,7 @@ export class PlanetService {
         map((data) =>
           data.results.map((planet) => {
             planet.id = this.swapiService.getPlanetId(planet.url);
-            for (let img of imageGlobalPlanets) {
+            for (const img of imageGlobalPlanets) {
               if (img.name === planet.name) {
                 planet.imageUrl = img.url;
               }
@@ -36,9 +36,11 @@ export class PlanetService {
             if (!planet.imageUrl) {
               planet.imageUrl = defaultImage;
             }
-            this.swapiService.getFilmsByPlanet(planet).subscribe((data) => {
-              planet.filmsData = data;
-            });
+            this.swapiService
+              .getFilmsByPlanet(planet)
+              .subscribe((filmsPlanet) => {
+                planet.filmsData = filmsPlanet;
+              });
             return planet;
           })
         ),
@@ -50,7 +52,7 @@ export class PlanetService {
     return this.httpClient.get<Planet>(`${swapiPlanetURL}/${planetId}`).pipe(
       map((planet) => {
         planet.id = this.swapiService.getPlanetId(planet.url);
-        for (let img of imageGlobalPlanets) {
+        for (const img of imageGlobalPlanets) {
           if (img.name === planet.name) {
             planet.imageUrl = img.url;
           }

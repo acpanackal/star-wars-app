@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanetListComponent implements OnInit {
   listPlanets: Planet[];
-  planetId: Number;
+  planetId: number;
 
   constructor(private service: PlanetService, private router: Router) {}
 
@@ -19,7 +19,7 @@ export class PlanetListComponent implements OnInit {
       this.listPlanets = data;
     });
   }
-  planetDetails(planet: Planet) {
+  planetDetails(planet: Planet): void {
     this.planetId = planet.id;
     this.service.selectedPlanet = planet;
     this.router.navigate(['/planets', planet.id]);

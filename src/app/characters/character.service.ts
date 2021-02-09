@@ -30,7 +30,7 @@ export class CharacterService {
           map((data) =>
             data.results.map((character) => {
               character.id = this.getCharacterId(character.url);
-              for (let img of imageGlobalCharacters) {
+              for (const img of imageGlobalCharacters) {
                 if (img.name === character.name) {
                   character.imageUrl = img.url;
                 }
@@ -40,8 +40,8 @@ export class CharacterService {
               }
               this.swapiService
                 .getFilmsByCharacter(character)
-                .subscribe((data) => {
-                  character.filmsData = data;
+                .subscribe((characterData) => {
+                  character.filmsData = characterData;
                 });
               return character;
             })
@@ -57,7 +57,7 @@ export class CharacterService {
       .pipe(
         map((character) => {
           character.id = this.getCharacterId(character.url);
-          for (let img of imageGlobalCharacters) {
+          for (const img of imageGlobalCharacters) {
             if (img.name === character.name) {
               character.imageUrl = img.url;
             }

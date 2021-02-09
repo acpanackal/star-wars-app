@@ -30,7 +30,7 @@ export class FilmsService {
               film.release_date,
               'dd.MM.yyyy'
             );
-            for (let img of imageGlobalUrl) {
+            for (const img of imageGlobalUrl) {
               if (img.name === film.title) {
                 film.imageUrl = img.url;
               }
@@ -38,12 +38,16 @@ export class FilmsService {
             if (!film.imageUrl) {
               film.imageUrl = defaultImage;
             }
-            this.swapiService.getCharactersByFilm(film).subscribe((data) => {
-              film.charactersData = data;
-            });
-            this.swapiService.getPlanetsByFilm(film).subscribe((data) => {
-              film.planetsData = data;
-            });
+            this.swapiService
+              .getCharactersByFilm(film)
+              .subscribe((filmdata) => {
+                film.charactersData = filmdata;
+              });
+            this.swapiService
+              .getPlanetsByFilm(film)
+              .subscribe((planetFilms) => {
+                film.planetsData = planetFilms;
+              });
             return film;
           })
         ),
@@ -59,7 +63,7 @@ export class FilmsService {
           film.release_date,
           'dd.MM.yyyy'
         );
-        for (let img of imageGlobalUrl) {
+        for (const img of imageGlobalUrl) {
           if (img.name === film.title) {
             film.imageUrl = img.url;
           }

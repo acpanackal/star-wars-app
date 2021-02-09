@@ -14,7 +14,7 @@ export class PlanetDetailsComponent implements OnInit {
   planet: Planet;
   planetId: number;
   characterId: number;
-  divFullFilms: boolean = false;
+  divFullFilms = false;
 
   constructor(
     public swapiService: SwapiService,
@@ -37,11 +37,10 @@ export class PlanetDetailsComponent implements OnInit {
       });
     }
   }
-  displayAllFilms() {
+  displayAllFilms(): void {
     this.divFullFilms = true;
   }
-  showFilmDetails(film: Film) {
-    //console.log(film);
+  showFilmDetails(film: Film): void {
     this.characterId = film.id;
     this.swapiService.selectedFilm = film;
     this.router.navigate(['/films', film.id]);

@@ -16,8 +16,8 @@ export class FilmDetailsComponent implements OnInit {
   filmId: number;
   characterId: number;
   planetId: number;
-  divFullCharcter: boolean = false;
-  divFullPlanet: boolean = false;
+  divFullCharcter = false;
+  divFullPlanet = false;
 
   constructor(
     public filmService: FilmsService,
@@ -25,7 +25,7 @@ export class FilmDetailsComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.filmService.selectedFilm) {
       this.film = this.filmService.selectedFilm;
     } else {
@@ -38,20 +38,18 @@ export class FilmDetailsComponent implements OnInit {
       });
     }
   }
-  displayAllCharacters() {
+  displayAllCharacters(): void {
     this.divFullCharcter = true;
   }
-  displayAllPlanets() {
+  displayAllPlanets(): void {
     this.divFullPlanet = true;
   }
-  showCharacterDetails(character: Character) {
-    //console.log(character);
+  showCharacterDetails(character: Character): void {
     this.characterId = character.id;
     this.swapiService.selectedCharacter = character;
     this.router.navigate(['/characters', character.id]);
   }
-  showPlanetDetails(planet: Planet) {
-    //console.log(planet);
+  showPlanetDetails(planet: Planet): void {
     this.planetId = planet.id;
     this.swapiService.selectedPlanet = planet;
     this.router.navigate(['/planets', planet.id]);

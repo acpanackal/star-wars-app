@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class FilmListComponent implements OnInit {
   @Input() films: Film[];
   listFilms: Film[];
-  filmId: Number;
+  filmId: number;
 
   constructor(private service: FilmsService, private router: Router) {}
 
@@ -21,7 +21,7 @@ export class FilmListComponent implements OnInit {
     });
   }
 
-  filmDetails(film: Film) {
+  filmDetails(film: Film): void {
     this.filmId = film.id;
     this.service.selectedFilm = film;
     this.router.navigate(['/films', film.id]);
