@@ -34,7 +34,7 @@ export class SwapiService {
   selectedPlanet: Planet;
   constructor(private httpClient: HttpClient, public datepipe: DatePipe) {}
   // return Films for character details page
-  getFilmsByCharacter(character: Character) {
+  getFilmsByCharacter(character: Character): Observable<Film[]> {
     return forkJoin(
       character.films.map((filmUrl) => {
         return this.httpClient.get<Film>(filmUrl).pipe(
@@ -58,7 +58,7 @@ export class SwapiService {
       })
     );
   }
-  getFilmsByPlanet(planet: Planet) {
+  getFilmsByPlanet(planet: Planet): Observable<Film[]> {
     return forkJoin(
       planet.films.map((filmUrl) => {
         return this.httpClient.get<Film>(filmUrl).pipe(
@@ -83,7 +83,7 @@ export class SwapiService {
     );
   }
   // return Characters for film details page
-  getCharactersByFilm(film: Film) {
+  getCharactersByFilm(film: Film): Observable<Character[]> {
     return forkJoin(
       film.characters.map((characterUrl) => {
         return this.httpClient.get<Character>(characterUrl).pipe(
@@ -103,7 +103,7 @@ export class SwapiService {
       })
     );
   }
-  getPlanetsByFilm(film: Film) {
+  getPlanetsByFilm(film: Film): Observable<Planet[]> {
     return forkJoin(
       film.planets.map((characterUrl) => {
         return this.httpClient.get<Planet>(characterUrl).pipe(
