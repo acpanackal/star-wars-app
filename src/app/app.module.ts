@@ -12,6 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { DatePipe } from '@angular/common';
 
@@ -27,6 +28,7 @@ import { DatePipe } from '@angular/common';
     MatGridListModule,
     MatDividerModule,
     MatButtonModule,
+    MatIconModule,
     FilmModule,
     PlanetModule,
     CharactersModule,

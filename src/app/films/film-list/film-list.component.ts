@@ -26,4 +26,8 @@ export class FilmListComponent implements OnInit {
     this.service.selectedFilm = film;
     this.router.navigate(['/films', film.id]);
   }
+
+  newFilm(): void {
+    this.router.navigate(['/newFilm']);
+  }
 }

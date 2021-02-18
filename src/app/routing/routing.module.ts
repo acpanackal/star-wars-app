@@ -1,3 +1,4 @@
+import { NewFilmComponent } from './../films/new-film/new-film.component';
 import { PlanetListComponent } from './../planet/planet-list/planet-list.component';
 import { HomeComponent } from './../home/home.component';
 import { CharacterDetailsComponent } from './../characters/character-details/character-details.component';
@@ -37,6 +38,11 @@ const routes: Routes = [
   {
     path: 'planets/:planetId',
     component: PlanetDetailsComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'newFilm',
+    component: NewFilmComponent,
     pathMatch: 'full',
   },
 ];
