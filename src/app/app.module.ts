@@ -15,9 +15,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { DatePipe } from '@angular/common';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, MapComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

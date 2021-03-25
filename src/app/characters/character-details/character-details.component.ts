@@ -23,7 +23,6 @@ export class CharacterDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.character = this.swapiService.selectedCharacter;
     if (this.swapiService.selectedCharacter) {
       this.character = this.swapiService.selectedCharacter;
     } else {
@@ -31,7 +30,6 @@ export class CharacterDetailsComponent implements OnInit {
         this.router.url.length - 1,
         this.router.url.length
       );
-      // console.log(this.characterId);
       this.characterService.getCharacter(this.characterId).subscribe((data) => {
         this.character = data;
       });

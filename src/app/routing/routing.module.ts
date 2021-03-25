@@ -1,3 +1,4 @@
+import { MapComponent } from './../map/map.component';
 import { NewFilmComponent } from './../films/new-film/new-film.component';
 import { PlanetListComponent } from './../planet/planet-list/planet-list.component';
 import { HomeComponent } from './../home/home.component';
@@ -43,6 +44,11 @@ const routes: Routes = [
   {
     path: 'newFilm',
     component: NewFilmComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'map',
+    component: MapComponent,
     pathMatch: 'full',
   },
 ];
